@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Code of Silence | 38 Blessings & Path of Effort</title>
+    <style>
+        :root {
+            --bg: #050505;
+            --card-bg: #111111;
+            --text-main: #e0e0e0;
+            --text-dim: #888888;
+            --gold: #c5a059;
+            --font-serif: 'Georgia', 'Times New Roman', serif;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+        .container { max-width: 750px; width: 100%; }
+        
+        /* Header & Effort Section */
+        header { text-align: center; margin-bottom: 80px; }
+        h1 { font-family: var(--font-serif); font-weight: 300; letter-spacing: 4px; color: var(--gold); }
+        .effort-section {
+            border-left: 2px solid var(--gold);
+            padding: 20px 40px;
+            margin: 40px 0;
+            background: rgba(197, 160, 89, 0.05);
+        }
+        .effort-quote { font-style: italic; margin-bottom: 10px; }
+
+        /* Blessing Cards */
+        .stage-title { 
+            color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; 
+            margin-top: 60px; border-bottom: 1px solid #333; padding-bottom: 10px;
+        }
+        .blessing-card {
+            background: var(--card-bg);
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border: 1px solid #222;
+            transition: 0.4s;
+        }
+        .blessing-card:hover { border-color: var(--gold); }
+        .num { color: var(--gold); font-family: var(--font-serif); font-size: 0.8rem; }
+        h2 { margin: 10px 0; font-size: 1.4rem; font-weight: 400; }
+        h3 { margin: 0 0 15px 0; font-size: 1.1rem; color: var(--text-dim); font-weight: 300; }
+        p { color: var(--text-dim); line-height: 1.7; font-size: 0.95rem; }
+
+        footer { text-align: center; margin-top: 100px; color: #444; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>THE CODE OF SILENCE</h1>
+        <p style="letter-spacing: 2px; font-size: 0.8rem; color: var(--text-dim);">AN ARTISAN GUIDE TO NOBLE LIVING</p>
+    </header>
+
+    <div class="effort-section">
+        <div class="effort-quote">"Success is not a gift of fate, but the fruit of persistent action."</div>
+        <div style="font-size: 0.9rem; color: var(--text-dim);">ความสำเร็จมิใช่ของขวัญจากโชคชะตา แต่เป็นผลพวงจากการกระทำที่เพียรพยายาม</div>
+        <p style="margin-top: 15px; font-size: 0.85rem;">
+            <strong>วิริยะวาที (The Gospel of Diligence):</strong> เชื่อมั่นในพลังแห่งความเพียร <br>
+            <strong>กรรมวาที (The Gospel of Action):</strong> เชื่อมั่นว่าการกระทำกำหนดผลลัพธ์
+        </p>
+    </div>
+
+    <div id="app"></div>
+
+    <footer>
+        &copy; 2026 Crafted with Mindfulness by J.E. Sapparojpattana & Gemini
+    </footer>
+</div>
+
+<script>
+    const data = [
+        { stage: "STAGE 1: BUILDING FOUNDATIONS (การเตรียมรากฐาน)", items: [
+            { id: 1, th: "การไม่คบคนพาล", en: "Not associating with the foolish", desc: "Avoiding those who lead you toward harmful paths and destructive habits." },
+            { id: 2, th: "การคบบัณฑิต", en: "Associating with the wise", desc: "Surrounding yourself with people of wisdom, virtue, and noble character." },
+            { id: 3, th: "การบูชาบุคคลที่ควรบูชา", en: "Honoring those worthy of honor", desc: "Expressing gratitude and respect to parents, teachers, and virtuous guides." }
+        ]},
+        { stage: "STAGE 2: ESTABLISHING ENVIRONMENT (การสร้างสภาพแวดล้อม)", items: [
+            { id: 4, th: "การอยู่ในถิ่นที่เหมาะสม", en: "Living in a suitable environment", desc: "Positioning yourself in a place conducive to physical and spiritual growth." },
+            { id: 5, th: "การมีบุญวาสนามาก่อน", en: "Having past merits", desc: "Capitalizing on previous good deeds as a foundation for current success." },
+            { id: 6, th: "การตั้งตนไว้ชอบ", en: "Setting oneself in the right course", desc: "Directing your life goals toward righteousness and personal integrity." }
+        ]},
+        { stage: "STAGE 3: SELF-REFINEMENT (การฝึกฝนตนเอง)", items: [
+            { id: 7, th: "การเป็นพหูสูต", en: "Broad knowledge (Great learning)", desc: "Constantly seeking knowledge and understanding in various fields." },
+            { id: 8, th: "การมีศิลปวิทยา", en: "Proficiency in skills", desc: "Mastering practical crafts and arts to sustain life and benefit others." },
+            { id: 9, th: "การมีวินัยที่ดี", en: "Highly disciplined", desc: "Living with self-control and adhering to ethical standards." },
+            { id: 10, th: "การมีวาจาสุภาษิต", en: "Pleasant and truthful speech", desc: "Communicating with kindness, truth, and purpose." }
+        ]},
+        { stage: "STAGE 4: FAMILY & SOCIAL DUTY (หน้าที่ต่อครอบครัวและสังคม)", items: [
+            { id: 11, th: "การบำรุงบิดามารดา", en: "Supporting one's parents", desc: "Caring for those who gave us life with deep gratitude." },
+            { id: 12, th: "การสงเคราะห์บุตร", en: "Cherishing one's children", desc: "Nurturing and guiding the next generation with love and wisdom." },
+            { id: 13, th: "การสงเคราะห์คู่ครอง", en: "Cherishing one's spouse", desc: "Maintaining a relationship built on mutual respect and support." },
+            { id: 14, th: "การทำงานไม่คั่งค้าง", en: "Orderly in work", desc: "Being diligent and efficient, leaving no task unfinished." }
+        ]},
+        { stage: "STAGE 5: HIGHER VIRTUES (จริยธรรมระดับสูง)", items: [
+            { id: 15, th: "การให้ทาน", en: "Generosity (Giving)", desc: "Practicing the art of letting go through selfless giving." },
+            { id: 16, th: "การประพฤติธรรม", en: "Living righteously", desc: "Aligning every action with the universal laws of morality." },
+            { id: 17, th: "การสงเคราะห์ญาติ", en: "Helping one's relatives", desc: "Strengthening the bonds of the extended family through kindness." },
+            { id: 18, th: "การทำงานที่ไม่มีโทษ", en: "Blameless actions", desc: "Engaging in occupations and deeds that do not harm others." }
+        ]},
+        { stage: "STAGE 6: MENTAL PURIFICATION (การขัดเกลาจิตใจ)", items: [
+            { id: 19, th: "การงดเว้นจากบาป", en: "Abstaining from evil", desc: "Mentally detaching from the urge to commit unwholesome acts." },
+            { id: 20, th: "การสำรวมจากการดื่มน้ำเมา", en: "Refraining from intoxicants", desc: "Keeping the mind clear and preventing the loss of mindfulness." },
+            { id: 21, th: "การไม่ประมาทในธรรม", en: "Heedfulness in all things", desc: "Staying alert to the present moment and the reality of life." },
+            { id: 22, th: "การมีความเคารพ", en: "Reverence (Respect)", desc: "Recognizing the value in others and the sacredness of life." }
+        ]},
+        { stage: "STAGE 7: INNER STRENGTH (ความแข็งแกร่งภายใน)", items: [
+            { id: 23, th: "การมีความถ่อมตน", en: "Humility", desc: "Freeing oneself from the burden of pride and ego." },
+            { id: 24, th: "การมีความสันโดษ", en: "Contentment", desc: "Finding peace and satisfaction with what one currently possesses." },
+            { id: 25, th: "การมีความกตัญญู", en: "Gratitude", desc: "Acknowledging every kindness received from the world." },
+            { id: 26, th: "การฟังธรรมตามกาล", en: "Listening to wisdom at the right time", desc: "Regularly exposing the mind to enlightening truths." }
+        ]},
+        { stage: "STAGE 8: PATIENCE & EXPLORATION (ความอดทนและการแสวงหา)", items: [
+            { id: 27, th: "การมีความอดทน", en: "Patience (Forbearance)", desc: "Enduring hardships and provocations with a calm mind." },
+            { id: 28, th: "การเป็นผู้ว่าง่าย", en: "Amenability to correction", desc: "Being open to feedback and easy to instruct." },
+            { id: 29, th: "การได้เห็นสมณะ", en: "Seeing noble seekers", desc: "Meeting and observing those who have dedicated life to peace." },
+            { id: 30, th: "การสนทนาธรรมตามกาล", en: "Discussing wisdom", desc: "Engaging in meaningful dialogues that clarify the mind." }
+        ]},
+        { stage: "STAGE 9: SPIRITUAL ASCENT (การยกระดับจิตวิญญาณ)", items: [
+            { id: 31, th: "การมีความเพียรเผากิเลส", en: "Self-restraint (Ardent effort)", desc: "Applying intense energy to burn away mental impurities." },
+            { id: 32, th: "การประพฤติพรหมจรรย์", en: "Holy life (Sublime conduct)", desc: "Living a life of purity and higher spiritual purpose." },
+            { id: 33, th: "การเห็นอริยสัจ", en: "Perceiving the Noble Truths", desc: "Directly understanding the nature of suffering and its end." },
+            { id: 34, th: "การทำพระนิพพานให้แจ้ง", en: "Realization of Nirvana", desc: "Experiencing the ultimate peace and liberation." }
+        ]},
+        { stage: "STAGE 10: THE UNWAVERING MIND (จิตที่ไม่หวั่นไหว)", items: [
+            { id: 35, th: "จิตไม่หวั่นไหวด้วยโลกธรรม", en: "A mind unshaken by worldly changes", desc: "Remaining stable amidst gain, loss, praise, or blame." },
+            { id: 36, th: "จิตไม่เศร้าโศก", en: "A sorrowless mind", desc: "Being free from the grip of grief and lamentation." },
+            { id: 37, th: "จิตปราศจากธุลี", en: "A stainless mind", desc: "A state of mental clarity free from the dust of passion." },
+            { id: 38, th: "จิตเกษม", en: "A secure and blissful mind", desc: "The ultimate security and freedom from all mental bonds." }
+        ]}
+    ];
+
+    const app = document.getElementById('app');
+    
+    data.forEach(group => {
+        const stageHeader = `<div class="stage-title">${group.stage}</div>`;
+        app.innerHTML += stageHeader;
+        
+        group.items.forEach(item => {
+            const card = `
+                <div class="blessing-card">
+                    <span class="num">Step ${item.id}</span>
+                    <h2>${item.th}</h2>
+                    <h3>${item.en}</h3>
+                    <p>${item.desc}</p>
+                </div>
+            `;
+            app.innerHTML += card;
+        });
+    });
+</script>
+
+</body>
+</html>
